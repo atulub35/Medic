@@ -1,4 +1,5 @@
 <%= form_with(model: ticket) do |form| %>
+
   <% if ticket.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>

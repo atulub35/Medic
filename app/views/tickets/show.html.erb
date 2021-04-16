@@ -1,13 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @ticket.title %>
-</p>
-
 <%= turbo_stream_from @ticket %>
 
-<%= turbo_frame_tag 'ticket' do %>
+<%= turbo_frame_tag dom_id(@ticket) do %>
   <%= render @ticket %>
   <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
   <%= link_to 'Back', tickets_path, 'data-turbo-frame': :_top %>
@@ -18,8 +12,14 @@
   <%= render @ticket.comments %>
 </div>
 
-<%# link_to 'New Comment', new_ticket_comment_path(@ticket) %>
+<%= link_to 'New Comment', new_ticket_comment_path(@ticket) %>
 <%= turbo_frame_tag 'new_comment', src: new_ticket_comment_path(@ticket), target: :_top %>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<%= turbo_frame_tag 'custom-button-controller' do %>
+  <div data-controller="custom-button">
+    <button data-custom-button-target="button" data-action="click->custom-button#reset">
+      Greet
+    </button>
+    <span data-custom-button-target="output">
+    </span>
+  </div>
+<% end %>
