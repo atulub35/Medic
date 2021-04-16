@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @ticket.title %>
+</p>
+
+<%= turbo_stream_from @ticket %>
+
+<%= turbo_frame_tag 'ticket' do %>
+  <%= render @ticket %>
+  <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+  <%= link_to 'Back', tickets_path, 'data-turbo-frame': :_top %>
+<% end %>
+
+<div id='comments'>
+  <h2>Comments</h2>
+  <%= render @ticket.comments %>
+</div>
+
+<%# link_to 'New Comment', new_ticket_comment_path(@ticket) %>
+<%= turbo_frame_tag 'new_comment', src: new_ticket_comment_path(@ticket), target: :_top %>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

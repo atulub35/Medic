@@ -1,0 +1,5 @@
+<%= turbo_frame_tag dom_id(comment) do %>
+  <em>Someone said <%= time_ago_in_words(comment.created_at) %> ago</em>
+  <%= comment.content %>
+  <hr>
+<% end %>
