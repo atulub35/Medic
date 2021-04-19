@@ -10,12 +10,15 @@
     <%= turbo_include_tags %>
     # if using StimulusJS in Webpacker
     <%# stimulus_include_tags %>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: 'layouts/navbar'%>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

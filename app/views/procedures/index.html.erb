@@ -16,7 +16,7 @@
         <td><%= procedure.title %></td>
         <td><%= link_to 'Show', procedure %></td>
         <td><%= link_to 'Edit', edit_procedure_path(procedure) %></td>
-        <td><%= link_to 'Destroy', procedure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', procedure, method: :delete, data: { confirm: 'Are you sure you want to delete ' + procedure.title + ' ?' } %></td>
       </tr>
     <% end %>
   </tbody>
