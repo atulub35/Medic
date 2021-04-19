@@ -1,22 +1,22 @@
 class CommentsController < ApplicationController
-    before_action :set_ticket
+    before_action :set_procedure
   
     def new
-      @comment = @ticket.comments.new
+      @comment = @procedure.comments.new
     end
   
     def create
-      @comment = @ticket.comments.create!(comment_params)
+      @comment = @procedure.comments.create!(comment_params)
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to @ticket }
+        format.html { redirect_to @procedure }
       end
     end
   
     private
   
-    def set_ticket
-      @ticket = Ticket.find(params[:ticket_id])
+    def set_procedure
+      @procedure = Procedure.find(params[:procedure_id])
     end
   
     def comment_params

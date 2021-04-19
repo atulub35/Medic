@@ -54,13 +54,13 @@ ActiveRecord::Schema.define(version: 2021_04_16_035633) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "ticket_id", null: false
+    t.bigint "procedure_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["ticket_id"], name: "index_comments_on_ticket_id"
+    t.index ["procedure_id"], name: "index_comments_on_procedure_id"
   end
 
-  create_table "tickets", force: :cascade do |t|
+  create_table "procedures", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -68,5 +68,5 @@ ActiveRecord::Schema.define(version: 2021_04_16_035633) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "comments", "tickets"
+  add_foreign_key "comments", "procedures"
 end

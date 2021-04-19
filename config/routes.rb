@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :tickets do
+  resources :procedures do
     resources :comments, only: [:new, :create]
   end
-  root to: 'tickets#index'
+  root to: 'procedures#index'
 end

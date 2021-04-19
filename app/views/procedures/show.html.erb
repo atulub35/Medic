@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<%= turbo_stream_from @procedure %>
+
+<%= turbo_frame_tag dom_id(@procedure) do %>
+  <%= render @procedure %>
+  <%= link_to 'Edit', edit_procedure_path(@procedure) %> |
+  <%= link_to 'Back', procedures_path, 'data-turbo-frame': :_top %>
+<% end %>
+
+<div id='comments'>
+  <h2>Comments</h2>
+  <%= render @procedure.comments %>
+</div>
+
+<%= link_to 'New Comment', new_procedure_comment_path(@procedure) %>
+<%= turbo_frame_tag 'new_comment', src: new_procedure_comment_path(@procedure), target: :_top %>
+<%= turbo_frame_tag 'custom-button-controller' do %>
+  <div data-controller="custom-button">
+    <button data-custom-button-target="button" data-action="click->custom-button#reset">
+      Greet
+    </button>
+    <span data-custom-button-target="output">
+    </span>
+  </div>
+<% end %>

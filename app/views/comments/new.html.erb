@@ -1,6 +1,6 @@
 <%= turbo_frame_tag 'new_comment' do %>
   <h2>New Comment</h2>
-  <%= form_with model: [@ticket, @comment],
+  <%= form_with model: [@procedure, @comment],
         data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' } do |form| %>
       <div class='field'>
         <%= form.rich_text_area :content %>
