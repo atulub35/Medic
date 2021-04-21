@@ -1,6 +1,7 @@
 class Procedure < ApplicationRecord
     has_rich_text :content
     has_many :comments, dependent: :destroy
+    has_many :temperatures, dependent: :destroy
 
     broadcasts
     # after_create_commit -> { broadcast_append_to self }

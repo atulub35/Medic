@@ -1,25 +1,28 @@
 <%= form_with(model: procedure) do |form| %>
 
-  <% if procedure.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(procedure.errors.count, "error") %> prohibited this procedure from being saved:</h2>
-
-      <ul>
-        <% procedure.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
+<div class="col s12 m12">
+  <div class="card grey darken-3">
+      <div class="card-content white-text">
+        <% if procedure.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(procedure.errors.count, "error") %> prohibited this procedure from being saved:</h2>
+    
+          <ul>
+            <% procedure.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="field">
+        <%= form.label :title, class: 'white-text' %>
+        <%= form.text_field :title, class: 'white-text' %>
+        <%= form.label :content, class: 'white-text' %>
+        <%= form.rich_text_area :content, class: 'white-text' %>
+      </div>
+      </div>
+      <div class="card-action black-text"><%= form.submit :class => 'btn m-t-10 m-b-10' %></div>
   </div>
-
-  <div class="actions">
-    <%= form.submit "Create procedure", class: "btn" %>
-  </div>
+</div>
 <% end %>

@@ -1,10 +1,10 @@
 <%= turbo_frame_tag 'new_comment' do %>
-  <h2>New Comment</h2>
+  <h5>New Comment</h5>
   <%= form_with model: [@procedure, @comment],
         data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' } do |form| %>
       <div class='field'>
         <%= form.rich_text_area :content %>
-        <%= form.submit 'Post', 'data-reset-form-target': 'button' %>
+        <%= form.submit :class => 'btn m-t-10', 'data-reset-form-target': 'button' %>
       </div>
   <% end %>
 <% end %>

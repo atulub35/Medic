@@ -1,5 +1,7 @@
 @import "./variables.scss";
-
+html {
+    font-size: 14px;
+}
 .btn-outlined {
     background: #fff;
     color: $secondary-color;
@@ -8,4 +10,7 @@
         background-color: $clr-white;
         color: $secondary-color;
     }
+}
+.border-none {
+    border: 0;
 }

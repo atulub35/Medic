@@ -1,0 +1,10 @@
+<%= turbo_frame_tag 'new_temperature' do %>
+  <span class="card-title">New temperature</span>
+  <%= form_with model: [@procedure, @temperature],
+        data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset' } do |form| %>
+      <div class='field'>
+        <%= form.range_field :title, :in => 0..100, :step => '.1' %>
+        <%= form.submit :class => 'btn', 'data-reset-form-target': 'button' %>
+      </div>
+  <% end %>
+<% end %>

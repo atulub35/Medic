@@ -1,0 +1,13 @@
+<%= turbo_stream_from @procedure %>
+    <h6>Editing Comment</h6>
+    <%= form_with model: [@procedure, @temperature],
+        data: { controller: 'reset_form', action: 'turbo:submit-end->reset_form#reset' } do |form| %>
+        <div class='field'>
+          <p class="range-field">
+            <%= form.range_field :title, :in => 0..100, :step => '.1' %>
+          </p>
+        <%= form.submit :'data-reset_form-target' => 'button', :class => 'btn m-t-10 m-b-10' %>
+        </div>
+          </form>
+    <% end %>
+    <%= link_to 'Back', procedures_path, 'data-turbo-frame': :_top %>

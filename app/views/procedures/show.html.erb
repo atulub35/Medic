@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
-<%= turbo_stream_from @procedure %>
-
-<%= turbo_frame_tag dom_id(@procedure) do %>
-  <%= render @procedure %>
-  <%= link_to 'Edit', edit_procedure_path(@procedure) %> |
-  <%= link_to 'Back', procedures_path, 'data-turbo-frame': :_top %>
-<% end %>
-
-<div id='comments'>
-  <h2>Comments</h2>
-  <%= render @procedure.comments %>
+<div class="row">
+    <p id="notice"><%= notice %></p>
+    <%= turbo_stream_from @procedure %> <%= render @procedure %>
+    <div class="col s12 m12">
+        <ul class="collapsible grey darken-3 white-text">
+            <li>
+                <div class="collapsible-header grey darken-3 white-text"><i class="material-icons">comments</i>Comments</div>
+                <div class="collapsible-body">
+                    <div class="card-content white-text">
+                        <span class="card-title">Comments</span>
+                        <div id="comments"><%= render @procedure.comments %></div>
+                        <%= turbo_frame_tag 'new_comment', src: new_procedure_comment_path(@procedure), target: :_top %>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col s12 m12">
+        <div class="card grey darken-3">
+            <div class="card-content white-text">
+                <span class="card-title">Temperature</span>
+                <div id="temperatures"><%= render @procedure.temperatures %></div>
+                <%= turbo_frame_tag 'new_temperature', src: new_procedure_temperature_path(@procedure), target: :_top %>
+            </div>
+        </div>
+    </div>
 </div>
 
-<%= link_to 'New Comment', new_procedure_comment_path(@procedure) %>
-<%= turbo_frame_tag 'new_comment', src: new_procedure_comment_path(@procedure), target: :_top %>
+<!-- 
 <%= turbo_frame_tag 'custom-button-controller' do %>
   <div data-controller="custom-button">
     <button data-custom-button-target="button" data-action="click->custom-button#reset">
@@ -22,4 +35,4 @@
     <span data-custom-button-target="output">
     </span>
   </div>
-<% end %>
+<% end %> -->

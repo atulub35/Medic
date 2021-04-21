@@ -25,6 +25,7 @@ class ProceduresController < ApplicationController
 
     respond_to do |format|
       if @procedure.save
+        format.turbo_stream
         format.html { redirect_to @procedure, notice: "Procedure was successfully created." }
         format.json { render :show, status: :created, location: @procedure }
       else
