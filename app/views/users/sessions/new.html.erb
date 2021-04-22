@@ -1,20 +1,20 @@
 <h6>Log in</h6>
 <div class="col s12 m12">
   <div class="card grey darken-3">
-      <div class="card-content white-text">
+      <div class="card-content ">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'white-text' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: '' %>
         </div>
       
         <div class="field">
-          <%= f.password_field :password, autocomplete: "current-password", class: 'white-text' %>
+          <%= f.password_field :password, autocomplete: "current-password", class: '' %>
         </div>
       
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me, class: 'white-text' %>
+            <%= f.label :remember_me, class: '' %>
           </div>
         <% end %>
       

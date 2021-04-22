@@ -2,7 +2,7 @@
 
 <div class="col s12 m12">
   <div class="card grey darken-3">
-      <div class="card-content white-text">
+      <div class="card-content ">
         <% if procedure.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(procedure.errors.count, "error") %> prohibited this procedure from being saved:</h2>
@@ -16,10 +16,10 @@
       <% end %>
     
       <div class="field">
-        <%= form.label :title, class: 'white-text' %>
-        <%= form.text_field :title, class: 'white-text' %>
-        <%= form.label :content, class: 'white-text' %>
-        <%= form.rich_text_area :content, class: 'white-text' %>
+        <%= form.label :title, class: '' %>
+        <%= form.text_field :title, class: '' %>
+        <%= form.label :content, class: '' %>
+        <%= form.rich_text_area :content, class: '' %>
       </div>
       </div>
       <div class="card-action black-text"><%= form.submit :class => 'btn m-t-10 m-b-10' %></div>

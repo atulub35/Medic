@@ -10,7 +10,7 @@ import "channels"
 import "../controllers"
 import 'materialize-css/dist/js/materialize'
 import '@hotwired/turbo-rails'
-// Rails.start()
+Rails.start() // TODO: remove ujs when turbo streams are inplemented
 // Turbolinks.start()
 ActiveStorage.start()
 

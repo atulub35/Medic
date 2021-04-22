@@ -1,7 +1,32 @@
 @import "./variables.scss";
+@import "./mixin.scss";
 html {
     font-size: 14px;
 }
+body {
+  
+    // Override in explicit or implicit dark mode
+    @include dark {
+      color: white;
+      background: $clr-grey-900;
+    }
+    @include light {
+      color: $clr-grey-900;
+      background: white;
+    }
+
+    .darken-3 {
+      @include dark {
+        color: white !important;
+        background-color: $clr-grey-800 !important;
+      }
+      @include light {
+        color: $clr-grey-800 !important;
+        background-color: white !important;
+      }
+    }
+  }
+
 .btn-outlined {
     background: #fff;
     color: $secondary-color;

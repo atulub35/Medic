@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Medic</title>
+    <meta name="color-scheme" content="dark light">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,18 +16,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
-  <body class="grey darken-4 white-text">
+  <body class="">
     <%= render partial: 'layouts/navbar'%>
     <div class="container">
       <%= yield %>
     </div>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems);
-        var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems);
-      });
+      M.AutoInit()
   </script>
   </body>
 </html>

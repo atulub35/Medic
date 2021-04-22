@@ -1,12 +1,11 @@
 <div>
     <%= turbo_frame_tag dom_id(temperature) do %>
         <div class="">
-            <div class="card-content white-text">
               <%= temperature.title %>
-              <%= range_field_tag 'title', temperature.title, :in => 0..100, :step => '.1' %>
+              <!-- <%= range_field_tag 'title', temperature.title, :in => 0..100, :step => '.1' %> -->
+              <div class="progress">
+                <div class="determinate" style="width: <%= temperature.title %>%"></div>
             </div>
-            <div class="card-action"></div>
-            
         </div>
     <% end %> <% if @procedure.present? %> <%= link_to 'Edit', edit_procedure_temperature_path(@procedure, temperature), class: 'btn' %> <% end %>
 </div>
