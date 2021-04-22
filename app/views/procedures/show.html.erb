@@ -19,7 +19,7 @@
         <div class="card grey darken-3">
             <div class="card-content">
                 <span class="card-title">Temperature</span>
-                <div id="temperatures"><%= render @procedure.temperatures %></div>
+                <div id="temperatures"><%= render @procedure.temperatures, procedure: @procedure %></div>
                 <%= turbo_frame_tag 'new_temperature', src: new_procedure_temperature_path(@procedure), target: :_top %>
             </div>
         </div>
