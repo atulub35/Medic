@@ -1,6 +1,8 @@
 class ProceduresController < ApplicationController
+  include Secured
+  before_action :set_user
   before_action :set_procedure, only: %i[ show edit update destroy ]
-
+  
   # GET /procedures or /procedures.json
   def index
     @procedures = Procedure.all
@@ -66,5 +68,9 @@ class ProceduresController < ApplicationController
     # Only allow a list of trusted parameters through.
     def procedure_params
       params.require(:procedure).permit(:title, :content)
+    end
+
+    def set_user
+      @user = session[:userinfo]
     end
 end

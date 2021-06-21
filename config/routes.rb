@@ -1,24 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations',
-    confirmations: 'users/confirmations'
-  }
-
-  as :user do
-    # When user is logged in
-    authenticated do
-      get '/' => redirect('/procedures') #'#tickets'
+  root 'procedures#index'
+  get '/auth/auth0/callback' => 'auth0#callback'
+  get '/auth/failure' => 'auth0#failure'
+  get '/auth/logout' => 'auth0#logout'
+  get '/auth/redirect' => 'auth0#redirect'
+  get '/' => redirect('/procedures') #'#procedures'
       resources :procedures do
         resources :comments
         resources :temperatures
       end
-    end
-
-    # When user is not logged in
-    unauthenticated do
-      root to: 'users/sessions#new'
-    end
-  end
 end

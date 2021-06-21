@@ -1,7 +1,8 @@
 <div class="col s12 m12">
   <div class="card grey darken-3">
     <div class="card-content">
-      <span class="card-title">Procedure</span>
+      <span class="card-title">Procedure<i class="material-icons right">close</i></span>
+      <%= time_ago_in_words(procedure.created_at) %> ago
       <%= turbo_frame_tag :div, id: dom_id(procedure) do %>
         <h5><%= procedure.title %></h5>
         <p><%= procedure.content %></p>

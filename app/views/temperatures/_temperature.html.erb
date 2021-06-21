@@ -12,5 +12,7 @@
     <% if @procedure.present? %>
         <%= turbo_frame_tag dom_id(temperature), src: edit_procedure_temperature_path(@procedure, temperature), target: :_top %>
     <% end %>
-    <% if @procedure.present? %> <%= link_to 'Edit', edit_procedure_temperature_path(@procedure, temperature), class: 'btn' %> <% end %>
+    <% if @procedure.present? %>
+        <%= link_to 'Go To Edit View', edit_procedure_temperature_path(@procedure, temperature), class: 'btn m-l-5' %>
+    <% end %>
 </div>

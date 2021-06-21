@@ -3,14 +3,14 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
+// import Rails from "@rails/ujs"
 // import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "../controllers"
 import 'materialize-css/dist/js/materialize'
 import '@hotwired/turbo-rails'
-Rails.start() // TODO: remove ujs when turbo streams are inplemented
+// Rails.start() // TODO: remove ujs when turbo streams are inplemented
 // Turbolinks.start()
 ActiveStorage.start()
 

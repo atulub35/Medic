@@ -37,6 +37,12 @@ body {
         color: $secondary-color;
     }
 }
+.brand-logo {
+  img {vertical-align: middle;}
+}
 .border-none {
     border: 0;
+}
+.dropdown-content {
+  width: 150px;
 }

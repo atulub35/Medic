@@ -3,15 +3,13 @@
       <div class="container">
         <div class="nav-wrapper">
             <%= link_to procedures_path, class: "brand-logo" do %>
-            <i class="material-icons">home</i>
+                <%= image_tag("/pills.png", size: "48x48", alt: "Logo") %>
             <% end %>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li>
-                    <%= link_to '/users/sign_out', :method => :delete do %>
-                    <i class="material-icons">logout</i>
-                    <% end %>
-                </li>
+                <% if session[:userinfo] %>
+                    <li class="<%= 'active' if params[:controller] == 'logout' %>"><a id="qsLogoutBtn" href="/auth/logout"><i class="material-icons">logout</i></a></li>
+                <% end %>
             </ul>
         </div>
       </div>

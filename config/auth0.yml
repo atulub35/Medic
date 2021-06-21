@@ -1,0 +1,5 @@
+# ./config/auth0.yml
+development:
+  auth0_domain: atulub.us.auth0.com
+  auth0_client_id: P1ExlWvgX59OJzdCVcyfQbbxZEFZYK2H
+  auth0_client_secret: BPaqu1OS_ATxzTZ82LVDvRoVa7uI1HDeglgnbmHporKfat_yfVHj0f4ZRXhaRJ2T

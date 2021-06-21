@@ -1,38 +1,64 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Procedures</h1>
-
+<h5>Procedures</h5>
+<%= button_to 'Login 1', 'auth/auth0', method: :post %>
+<%= button_to 'Login 2', 'auth/auth0', method: :post, class: 'btn btn-success btn-lg', id: 'qsLoginBtn' unless session[:userinfo].present? %>
+<%= link_to 'Back', procedures_path, 'data-turbo-frame': :_top %>
+<div class="panel panel-default">
+    <div class="panel-heading">Normalized User Profile</div>
+    <div class="panel-body">
+      <pre><%= JSON.pretty_generate(@user) %></pre>
+      <pre><% unless @user.blank? %><%= @user.as_json %><% end %></pre>
+    </div>
+</div>
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Action</th>
-      <th>Action</th>
-      <th>Action</th>
-    </tr>
-  </thead>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Created On</th>
+            <th class="right">Action</th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @procedures.each do |procedure| %>
-    <tr>
-        <td><%= procedure.title %></td>
-        <td>
-          <%= link_to procedure do %>
-              <i class="material-icons">visibility</i>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to edit_procedure_path(procedure) do %>
-              <i class="material-icons">edit</i>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to 'Destroy', procedure, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @procedures.each do |procedure| %>
+        <tr>
+            <td><%= procedure.title %></td>
+            <%= link_to procedure, class: "p-0" do %> View <% end %>
+            <td><%= time_tag procedure.created_at, datetime: procedure.created_at.strftime('%G-W%V') %></td>
+            <td>
+                <%= link_to procedure, class: "p-0" do %> View <% end %>
+                <a class="dropdown-trigger right" href="#" data-target="procedure-actions"><i class="material-icons">more_vert</i></a>
+                <ul id="procedure-actions" class="dropdown-content">
+                    <li class="flex flex-row vertical-center m-r-10">
+                        <i class="p-l-10 material-icons">visibility</i>
+                        <%= link_to procedure, class: "p-0" do %> View <% end %>
+                    </li>
+                    <li class="flex flex-row vertical-center p-r-2">
+                        <i class="p-l-10 material-icons">edit</i>
+                        <%= link_to edit_procedure_path(procedure), class: "" do %> Edit <% end %>
+                    </li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><%= link_to 'Destroy', procedure, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
 </table>
+<script>
+    var settings = {
+"async": true,
+"url": "https://atulub.us.auth0.com/oauth/token",
+"method": "POST",
+"headers": {
+  "content-type": "application/json",
+},
+"data": "{\"client_id\":\"P1ExlWvgX59OJzdCVcyfQbbxZEFZYK2H\",\"client_secret\":\"BPaqu1OS_ATxzTZ82LVDvRoVa7uI1HDeglgnbmHporKfat_yfVHj0f4ZRXhaRJ2T\",\"audience\":\"https://atulub.us.auth0.com/api/v2/\",\"grant_type\":\"client_credentials\"}"
+}
 
-<br>
+$.ajax(settings).done(function (response) {
+console.log(response);
+});
+  </script>
+<br />
 <%= link_to 'New Procedure', new_procedure_path, class: 'btn' %>

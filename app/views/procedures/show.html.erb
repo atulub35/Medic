@@ -20,7 +20,9 @@
             <div class="card-content">
                 <span class="card-title">Temperature</span>
                 <div id="temperatures"><%= render @procedure.temperatures, procedure: @procedure %></div>
-                <%= turbo_frame_tag 'new_temperature', src: new_procedure_temperature_path(@procedure), target: :_top %>
+                <% if @procedure.temperatures.blank? %>
+                    <%= turbo_frame_tag 'new_temperature', src: new_procedure_temperature_path(@procedure), target: :_top %>
+                <% end %>
             </div>
         </div>
     </div>
