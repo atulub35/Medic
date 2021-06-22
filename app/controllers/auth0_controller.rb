@@ -24,7 +24,6 @@ class Auth0Controller < ApplicationController
   AUTH0_CONFIG = Rails.application.config_for(:auth0)
 
   def logout_url
-    byebug
     request_params = {
       returnTo: root_url,
       client_id: AUTH0_CONFIG['auth0_client_id']
