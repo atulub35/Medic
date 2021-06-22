@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 <h5>Procedures</h5>
-<%= button_to 'Login 1', 'auth/auth0', method: :post %>
-<%= button_to 'Login 2', 'auth/auth0', method: :post, class: 'btn btn-success btn-lg', id: 'qsLoginBtn' unless session[:userinfo].present? %>
+<%= button_to 'Login', 'auth/auth0', method: :post, class: 'btn btn-success btn-lg', id: 'qsLoginBtn' unless session[:userinfo].present? %>
 <%= link_to 'Back', procedures_path, 'data-turbo-frame': :_top %>
-<div class="panel panel-default">
+<!-- <div class="panel panel-default">
     <div class="panel-heading">Normalized User Profile</div>
     <div class="panel-body">
       <pre><%= JSON.pretty_generate(@user) %></pre>
       <pre><% unless @user.blank? %><%= @user.as_json %><% end %></pre>
     </div>
-</div>
+</div> -->
 <table>
     <thead>
         <tr>

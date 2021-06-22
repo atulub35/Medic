@@ -6,8 +6,7 @@
 // import Rails from "@rails/ujs"
 // import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-import "../controllers"
+
 import 'materialize-css/dist/js/materialize'
 import '@hotwired/turbo-rails'
 // Rails.start() // TODO: remove ujs when turbo streams are inplemented
@@ -16,3 +15,7 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require_tree .
