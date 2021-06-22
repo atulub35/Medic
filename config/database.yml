@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: Medic_production
-  username: Medic
+  username: atulubarhande
   password: <%= ENV['MEDIC_DATABASE_PASSWORD'] %>
