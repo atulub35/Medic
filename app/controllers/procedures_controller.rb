@@ -1,6 +1,6 @@
 class ProceduresController < ApplicationController
-  include Secured
-  before_action :set_user
+  # include Secured
+  # before_action :set_user
   before_action :set_procedure, only: %i[ show edit update destroy ]
   
   # GET /procedures or /procedures.json

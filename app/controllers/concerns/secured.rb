@@ -18,7 +18,8 @@ module Secured
 
     render json: { errors: ['Insufficient scope'] }, status: :forbidden unless scope_included
   rescue JWT::VerificationError, JWT::DecodeError
-    render json: { errors: ['Not Authenticated'] }, status: :unauthorized
+    # render json: { errors: ['Not Authenticated'] }, status: :unauthorized
+    redirect_to procedures_path
   end
 
   def http_token
