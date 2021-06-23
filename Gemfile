@@ -60,3 +60,4 @@ gem 'rake'
 
 gem 'omniauth-auth0', '~> 2.5'
 gem 'sprockets-rails'
+gem 'jwt'
